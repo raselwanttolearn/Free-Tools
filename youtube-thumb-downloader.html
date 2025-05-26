@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to download high-quality thumbnails from YouTube videos in multiple resolutions (maxresdefault, sddefault, hqdefault). Fast, easy, and no registration required.">
+    <meta name="keywords" content="YouTube thumbnail downloader, download YouTube thumbnails, get YouTube preview images, YouTube maxresdefault, YouTube sddefault">
+    <meta name="author" content="YouTube Thumbnail Downloader">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="YouTube Thumbnail Downloader - Get High Quality Thumbnails">
+    <meta property="og:description" content="Download YouTube thumbnails in multiple resolutions with our free online tool. No registration required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <link rel="canonical" href="https://yourwebsite.com">
+    <title>YouTube Thumbnail Downloader - Get High Quality Thumbnails</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --youtube-red: #FF0000;
+            --background: #FFFFFF;
+            --text-primary: #030303;
+            --text-secondary: #606060;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #urlInput {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 300px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: var(--youtube-red);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .thumbnail-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .thumbnail-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .thumbnail-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .thumbnail-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: none;
+            border: 1px solid var(--youtube-red);
+            color: var(--youtube-red);
+            margin-top: 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background-color: rgba(255, 0, 0, 0.05);
+        }
+
+        .resolution {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin: 8px 0;
+        }
+
+        /* Ad container styles */
+        .ad-container {
+            margin: 2rem auto;
+            text-align: center;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 4px;
+            max-width: 1200px;
+        }
+
+        .ad-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Footer styles */
+        footer {
+            margin-top: 3rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .thumbnails {
+                grid-template-columns: 1fr;
+            }
+
+            #urlInput {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>YouTube Thumbnail Downloader</h1>
+            <p>Download high-quality thumbnails from any YouTube video in multiple resolutions</p>
+            
+            <!-- Top Ad Banner -->
+            <div class="ad-container">
+                <div class="ad-label">Advertisement</div>
+                <!-- Replace with your AdSense ad unit code -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                     data-ad-slot="YOUR_AD_SLOT_ID_TOP"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="urlInput" placeholder="Paste YouTube link here..." aria-label="YouTube video URL">
+                <button onclick="processUrl()">Get Thumbnails</button>
+            </div>
+        </header>
+
+        <!-- Middle Ad Banner -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your AdSense ad unit code -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID_MIDDLE"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div id="thumbnailsContainer" class="thumbnails"></div>
+
+        <!-- Bottom Ad Banner -->
+        <div class="ad-container">
+            <div class="ad-label">Advertisement</div>
+            <!-- Replace with your AdSense ad unit code -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID_BOTTOM"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <footer>
+        <p>© <span id="currentYear"></span> YouTube Thumbnail Downloader. This tool is not affiliated with YouTube.</p>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const resolutions = [
+            { name: 'maxresdefault', dimensions: '1280×720' },
+            { name: 'sddefault', dimensions: '640×480' },
+            { name: 'hqdefault', dimensions: '480×360' },
+            { name: 'mqdefault', dimensions: '320×180' },
+            { name: 'default', dimensions: '120×90' }
+        ];
+
+        function extractVideoId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        async function downloadImage(url, filename) {
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                const blobUrl = window.URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = blobUrl;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                // Release the blob URL
+                window.URL.revokeObjectURL(blobUrl);
+            } catch (error) {
+                console.error('Download failed:', error);
+                alert('Download failed. Please try again or use a different browser.');
+            }
+        }
+
+        function createThumbnailCard(videoId, resolution) {
+            const card = document.createElement('div');
+            card.className = 'thumbnail-card';
+            
+            const webpUrl = `https://i.ytimg.com/vi_webp/${videoId}/${resolution.name}.webp`;
+            const jpgUrl = `https://i.ytimg.com/vi/${videoId}/${resolution.name}.jpg`;
+            const filename = `thumbnail-${videoId}-${resolution.name}.jpg`;
+
+            card.innerHTML = `
+                <picture>
+                    <source srcset="${webpUrl}" type="image/webp">
+                    <img class="thumbnail-image" src="${jpgUrl}" alt="YouTube thumbnail ${resolution.dimixels} resolution" loading="lazy">
+                </picture>
+                <div class="thumbnail-info">
+                    <div class="resolution">${resolution.dimensions}</div>
+                    <button class="download-btn" onclick="downloadImage('${jpgUrl}', '${filename}')">
+                        Download JPG
+                    </button>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function processUrl() {
+            const urlInput = document.getElementById('urlInput');
+            const videoId = extractVideoId(urlInput.value);
+            
+            if (!videoId) {
+                alert('Please enter a valid YouTube URL');
+                return;
+            }
+
+            const container = document.getElementById('thumbnailsContainer');
+            container.innerHTML = '';
+            
+            resolutions.forEach(res => {
+                const card = createThumbnailCard(videoId, res);
+                container.appendChild(card);
+            });
+
+            // Smooth scroll to results
+            container.scrollIntoView({ behavior: 'smooth' });
+
+            // Track conversion (optional)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-YOUR_CONVERSION_ID/YOUR_LABEL'
+                });
+            }
+        }
+
+        // Handle Enter key in input field
+        document.getElementById('urlInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') processUrl();
+        });
+
+        // Make downloadImage function available globally
+        window.downloadImage = downloadImage;
+
+        // Load ads after content is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize ads
+            if (typeof adsbygoogle !== 'undefined') {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        });
+    </script>
+</body>
+</html>
